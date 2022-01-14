@@ -1,0 +1,68 @@
+@use 'colors';
+@use 'mixins';
+
+header {
+    position: relative;
+    //background-color: colors.$dk-blue;
+}
+
+//menu
+.sliding-nav {
+    position: absolute;
+    top:0;
+    left: -30rem; //set to zero for styling purposes.
+    transition: left 1s ease-in-out;
+    z-index: 90;
+}
+.is-active .sliding-nav {
+    left: 0;
+}
+
+nav {
+   background-color: colors.$dk-blue;
+   min-width: 30rem;
+   height: 100vh;
+}
+
+ul.menu-items {
+    margin: 0;
+    //list-items
+    li {
+        text-align: center;
+        border-bottom: 0.2rem solid colors.$lt-green;
+        line-height: 6;
+        &:hover {
+            background-color: colors.$med-green;
+        }
+    }//list-items
+
+    a {
+        display: block;
+        color: colors.$peach;
+        &:hover {
+            color: colors.$dk-blue;
+        } 
+    }//end a
+
+}
+
+.mobile-layout {
+    @include mixins.basic-flex;
+}
+
+
+//toggle-icon
+.toggle-icon {
+    //add css declarations here if needed.
+    span {
+        width: 6rem;
+        height: 1rem;
+        background: colors.$lt-green;
+        display: block;
+        margin-bottom: 0.6rem;
+        border-radius: 10rem;
+        cursor: pointer;
+        position: relative;
+        z-index: 100;
+    }
+}
