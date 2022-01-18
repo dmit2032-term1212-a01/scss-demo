@@ -3,7 +3,7 @@
 
 header {
     position: relative;
-    //background-color: colors.$dk-blue;
+    background-color: colors.$dk-blue;
 }
 
 //menu
@@ -50,6 +50,18 @@ ul.menu-items {
     @include mixins.basic-flex;
 }
 
+//logo
+.logo {
+    @include mixins.flex-column;
+    color: colors.$lt-green;
+    .logo-icon {
+        width: 7rem;
+    }
+    .logo-name {
+        font-size: 2.1rem;
+    }
+}
+
 
 //toggle-icon
 .toggle-icon {
@@ -66,3 +78,54 @@ ul.menu-items {
         z-index: 100;
     }
 }
+
+//bp:600px
+@include mixins.break(small) {
+    //hide toggle
+    .toggle-icon {
+        display: none;
+    }
+
+    header {
+        .container {
+            @include mixins.basic-flex;
+        }
+    }
+
+    .mobile-layout { order: -1; }
+
+    //bring back the menu
+    nav { height: auto; }
+
+    .sliding-nav {
+        position: static;
+        left: 0;
+    }
+
+    ul.menu-items {
+        @include mixins.basic-flex;
+        //list-items
+        li {
+            border-bottom: none;
+            line-height: initial;
+            border-radius: 0.3rem;
+        }//list-items
+    
+        a {
+            padding: 1rem 0.5rem;
+        }//end a 
+    }//end of ul.menu
+
+
+} //bp:600px end
+
+//bp: 1750px
+@include mixins.break(exwide) {
+    header {
+        .container {
+            max-width: 175.0rem;
+            margin: auto;
+        }
+    }
+}
+

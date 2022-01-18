@@ -1,0 +1,18 @@
+@use 'colors';
+@use 'mixins';
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: colors.$dk-blue;
+    color: colors.$peach;
+
+    .container {
+        @include mixins.break(exwide) {
+            width: 175rem;
+            margin: auto;
+        }
+    }
+}
+
